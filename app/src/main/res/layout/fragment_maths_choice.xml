@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/spacer_size_1h"
+    android:paddingLeft="@dimen/spacer_size_1v"
+    android:paddingRight="@dimen/spacer_size_1v"
+    android:paddingTop="@dimen/spacer_size_1h"
+    tools:context="com.spc.marthacombo.MathsChoiceFragment">
+
+    <LinearLayout
+        android:id="@+id/linear_signs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacer_size_1h"
+        android:paddingLeft="@dimen/spacer_size_1v"
+        android:paddingRight="@dimen/spacer_size_1v"
+        android:paddingTop="@dimen/spacer_size_1h"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_multiply"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/display_size_5"
+            android:paddingLeft="@dimen/spacer_size_1v"
+            android:paddingRight="@dimen/spacer_size_1v"
+            android:contentDescription="@string/ibMathsButton"
+            android:background="@drawable/maths_multiply" />
+
+        <ImageButton
+            android:id="@+id/btn_add"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/display_size_5"
+            android:paddingLeft="@dimen/spacer_size_1v"
+            android:paddingRight="@dimen/spacer_size_1v"
+            android:contentDescription="@string/ibMathsButton"
+            android:background="@drawable/maths_add" />
+
+        <ImageButton
+            android:id="@+id/btn_divide"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/display_size_5"
+            android:paddingLeft="@dimen/spacer_size_1v"
+            android:paddingRight="@dimen/spacer_size_1v"
+            android:contentDescription="@string/ibMathsButton"
+            android:background="@drawable/maths_divide" />
+
+        <ImageButton
+            android:id="@+id/btn_subtract"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/display_size_5"
+            android:contentDescription="@string/ibMathsButton"
+            android:background="@drawable/maths_subtract" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear_random"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_signs"
+        android:layout_marginTop="@dimen/display_size_1"
+        android:background="@android:color/holo_red_light"
+        android:gravity="center"
+        android:paddingBottom="@dimen/spacer_size_1h"
+        android:paddingLeft="@dimen/spacer_size_1v"
+        android:paddingRight="@dimen/spacer_size_1v"
+        android:paddingTop="@dimen/spacer_size_1h"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/maths_random_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/maths_random_btn"
+            android:textColor="#bb07f7"
+            android:textSize="@dimen/text_size_2" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/maths_random_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="@android:color/holo_red_light"
+            android:gravity="center_horizontal"
+            android:text="@string/maths_random_desc"
+            android:textSize="@dimen/text_size_1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_speedtest"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_random"
+        android:layout_marginTop="@dimen/display_size_1"
+        android:background="@android:color/holo_orange_light"
+        android:paddingBottom="@dimen/spacer_size_1h"
+        android:paddingLeft="@dimen/spacer_size_1v"
+        android:paddingRight="@dimen/spacer_size_1v"
+        android:paddingTop="@dimen/spacer_size_1h"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker_min"
+            android:layout_width="40dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker_sec"
+            android:layout_width="40dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/maths_speedtest_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:minLines="3"
+                android:text="@string/maths_speedtest_desc"
+                android:textSize="@dimen/text_size_1" />
+
+            <Button
+                android:id="@+id/maths_speedtest_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/maths_speedtest_btn"
+                android:textColor="#ef0e1d"
+                android:textSize="@dimen/text_size_2" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_practice"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_speedtest"
+        android:layout_marginTop="@dimen/display_size_1"
+        android:background="@android:color/holo_green_light"
+        android:paddingBottom="@dimen/spacer_size_1h"
+        android:paddingLeft="@dimen/spacer_size_1v"
+        android:paddingRight="@dimen/spacer_size_1v"
+        android:paddingTop="@dimen/spacer_size_1h"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/maths_practice_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center_horizontal"
+                android:text="@string/maths_practice_desc"
+                android:textSize="@dimen/text_size_1" />
+
+
+            <Button
+                android:id="@+id/maths_practice_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/maths_practice_btn"
+                android:textColor="#e80eda"
+                android:textSize="@dimen/text_size_2" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker"
+            android:layout_width="40dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center"
+            android:layout_weight="2" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

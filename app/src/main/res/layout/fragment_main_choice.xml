@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.spc.marthacombo.MainChoiceFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMainTitle"
+        android:text="@string/tvMainTitle"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/text_size_5"
+        android:paddingTop="@dimen/display_size_1" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ivMainImage"
+        android:contentDescription="@string/ivMainImage"
+        android:background="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_alignBottom="@+id/ibMathsButton"
+        android:layout_below="@+id/tvMainTitle" />
+
+    <ImageButton
+        android:layout_width="@dimen/display_size_9"
+        android:layout_height="@dimen/display_size_9"
+        android:id="@+id/ibMathsButton"
+        android:contentDescription="@string/ibMathsButton"
+        android:background="@drawable/maths_button"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="@dimen/display_size_4"
+        android:layout_marginStart="@dimen/display_size_4"
+        android:layout_marginBottom="@dimen/display_size_4" />
+
+    <ImageButton
+        android:layout_width="@dimen/display_size_9"
+        android:layout_height="@dimen/display_size_9"
+        android:id="@+id/ibSpellingButton"
+        android:contentDescription="@string/ibSpellingButton"
+        android:background="@drawable/spelling_button"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="@dimen/display_size_4"
+        android:layout_marginEnd="@dimen/display_size_4"
+        android:layout_marginBottom="@dimen/display_size_4" />
+
+</RelativeLayout>

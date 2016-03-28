@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Martha!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ivMainImage">The lovely Martha taken at swimming lessons</string>
+    <string name="ibMathsButton">Take the Maths test</string>
+    <string name="ibSpellingButton">Take the Spelling test</string>
+    <string name="tvMainTitle">Hello Martha!</string>
+
+    <string name="maths_random_btn">Random</string>
+    <string name="maths_random_desc">Keep going - get as many right as you can!</string>
+    <string name="maths_speedtest_btn">&lt;&lt; Speed Test</string>
+    <string name="maths_speedtest_desc">Answer as many as you can within a time limit</string>
+    <string name="maths_practice_btn">Practice &gt;&gt;</string>
+    <string name="maths_practice_desc">Practice with specific number as base for calculations</string>
+
+    <string name="martha_instructions">Let\'s see how well you can do&#8230;\n&#8230;</string>
+    <string name="martha_timeIsUp">TIME IS UP!</string>
+    <string name="martha_picture">Lovely Martha taken at swimming</string>
+    <string name="martha_text_equals">=</string>
+    <string name="martha_text_mult">x</string>
+    <string name="martha_text_plus">+</string>
+    <string name="martha_text_subtract">-</string>
+    <string name="martha_text_divide">÷</string>
+
+    <string name="button_setup">Update test words</string>
+    <string name="button_test">TAKE THE TEST!</string>
+    <string name="button_review">Review Progress</string>
+    <string name="list_item_word_hint">spelling word</string>
+    <string name="list_item_btn_hint">1</string>
+    <string name="list_item_btn_delete">Delete this word</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="spelling_test_num">Word #1</string>
+
+</resources>

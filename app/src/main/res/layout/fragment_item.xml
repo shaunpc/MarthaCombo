@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:foregroundGravity="fill_horizontal|center_vertical">
+
+    <Button
+        android:id="@+id/list_item_btn_play"
+        android:layout_width="@dimen/display_size_4"
+        android:layout_height="@dimen/display_size_5"
+        android:background="@android:drawable/ic_media_play"
+        android:layout_marginLeft="@dimen/spacer_size_1h"
+        android:layout_marginStart="@dimen/spacer_size_1h"
+        android:textSize="@dimen/text_size_1"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:hint="@string/list_item_btn_hint"
+        android:gravity="center"
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/list_item_word"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/display_size_4"
+        android:layout_weight="5"
+        android:textSize="@dimen/text_size_3"
+        android:hint="@string/list_item_word_hint"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/spacer_size_1h"
+        android:layout_marginRight="@dimen/spacer_size_1h"
+        android:lines="1"
+        android:linksClickable="false"
+        android:minLines="1"
+        android:maxLines="1"
+        android:textIsSelectable="false" />
+
+    <ImageButton
+        android:layout_width="@dimen/display_size_4"
+        android:layout_height="@dimen/display_size_4"
+        android:background="@android:drawable/ic_menu_delete"
+        android:contentDescription="@string/list_item_btn_delete"
+        android:id="@+id/list_item_btn_delete"
+        android:layout_marginRight="@dimen/spacer_size_1h"
+        android:layout_marginEnd="@dimen/spacer_size_1h"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center_vertical" />
+
+</LinearLayout>

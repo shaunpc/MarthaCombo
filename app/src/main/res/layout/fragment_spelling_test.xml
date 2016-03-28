@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:orientation="vertical"
+    tools:context="com.spc.marthacombo.SpellingTestFragment">
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="@string/martha_instructions"
+        android:textSize="@dimen/text_size_1" />
+
+    <EditText
+        android:id="@+id/ed_answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_score"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/spacer_size_2h"
+        android:layout_marginRight="@dimen/spacer_size_2h"
+        android:inputType="textNoSuggestions|text"
+        android:textSize="@dimen/text_size_4">
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@id/ed_answer"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_margin="@dimen/display_size_2">
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="@dimen/display_size_4"
+            android:layout_height="@dimen/display_size_5"
+            android:background="@android:drawable/ic_media_play"
+            android:textSize="@dimen/text_size_1"
+            android:backgroundTint="@android:color/holo_green_light"
+            android:hint="@string/list_item_btn_hint"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/spelling_test_num"
+            android:textSize="@dimen/text_size_4"
+            android:gravity="center"
+            android:layout_weight="4" />
+
+        <ImageView
+            android:id="@+id/iv_tick"
+            android:layout_width="@dimen/display_size_6"
+            android:layout_height="@dimen/display_size_6"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/green_tick"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_martha"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_below="@id/tv_score"
+        android:alpha="0.3"
+        android:contentDescription="@string/martha_picture"
+        android:src="@mipmap/ic_launcher" />
+
+</RelativeLayout>
+

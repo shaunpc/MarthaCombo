@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/spacer_size_1h"
+    android:paddingLeft="@dimen/spacer_size_1v"
+    android:paddingRight="@dimen/spacer_size_1v"
+    android:paddingTop="@dimen/spacer_size_1h"
+    tools:context="com.spc.marthacombo.SpellingChoiceFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/spelling"
+        android:id="@+id/spelling_image" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/spelling_image"
+        android:text="@string/button_setup"
+        android:textSize="@dimen/text_size_2"
+        android:id="@+id/button_setup"
+        android:textColor="#e80eda" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button_setup"
+        android:text="@string/button_test"
+        android:textSize="@dimen/text_size_2"
+        android:id="@+id/button_test"
+        android:textColor="#ef0e1d" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button_test"
+        android:text="@string/button_review"
+        android:textSize="@dimen/text_size_2"
+        android:id="@+id/button_review"
+        android:textColor="#e80eda" />
+
+</RelativeLayout>
+

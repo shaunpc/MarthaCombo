@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="meTimeLabel1">MeTime credit:</string>
+    <string name="meTimeCredit">0</string>
+    <string name="meTimeLabel2">mins</string>
+    <string name="meTimeButton">Use 15 mins</string>
+    <dimen name="meTimePadding">8dp</dimen>
+</resources>

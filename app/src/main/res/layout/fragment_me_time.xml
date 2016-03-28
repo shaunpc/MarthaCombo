@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentStart="true"
+    android:layout_centerHorizontal="true"
+    android:background="@android:color/holo_green_light"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    tools:context="com.spc.marthacombo.MeTimeFragment">
+
+    <TextView
+        android:id="@+id/meTimeLabel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:padding="@dimen/meTimePadding"
+        android:text="@string/meTimeLabel1"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/meTimeCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:padding="@dimen/meTimePadding"
+        android:text="@string/meTimeCredit"
+        android:textSize="@dimen/text_size_3"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:maxLines="1"
+        android:minLines="1" />
+
+    <TextView
+        android:id="@+id/meTimeLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:padding="@dimen/meTimePadding"
+        android:text="@string/meTimeLabel2"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/meTimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:longClickable="true"
+        android:padding="@dimen/meTimePadding"
+        android:text="@string/meTimeButton"
+        android:gravity="center" />
+
+
+</LinearLayout>
+

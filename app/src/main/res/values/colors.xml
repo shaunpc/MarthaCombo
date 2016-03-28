@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="notSelected">#ffd6d7d7</color>
+    <color name="selected">#ff5a595b</color>
+    <color name="white">#ffffffff</color>
+    <color name="progress_start">#ffff0000</color>
+    <color name="progress_mid">#ffffa500</color>
+    <color name="progress_end">#ff00ff00</color>
+
+
+</resources>
