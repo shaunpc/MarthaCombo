@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
@@ -39,23 +40,16 @@ import java.util.Random;
 // 6. OnResume()     >>> [fragment is running] >>>  6. OnPause()
 public class MathsTestFragment extends Fragment {
 
-    // 1. Defines the listener interface with a method passing back data result.
-    public interface OnFragmentInteractionListener {
-        void onMathsTestResult(int value);
-    }
-
     // 2. Defines the fragment parameters
     private static final String ARG_PARAM_CALCTYPE = "CalcType";
     private static final String ARG_PARAM_TESTTYPE = "TestType";
     private static final String ARG_PARAM_TESTVALUE = "TestValue";
-    CalcType mCalc;
-    TestType mTest;
-    int mDuration, mTable;  // param#3 goes into one of these
-
     // 3. Define key variables
     private static final String MY_PREFS_FILE = "MathsPrefs";
     private static final String TAG = "MathsTestFragment";
-    private OnFragmentInteractionListener mListener;
+    CalcType mCalc;
+    TestType mTest;
+    int mDuration, mTable;  // param#3 goes into one of these
     int maxMultiplier = 13;
     Random r;
     int rm_best, rm_from, rm_contig, rm_rate;
@@ -69,7 +63,7 @@ public class MathsTestFragment extends Fragment {
     ImageView iv_martha;
     ProgressBar mProgressBar;
     CountDownTimer myCountDownTimer;
-
+    private OnFragmentInteractionListener mListener;
     // 4. Required empty public constructor
     public MathsTestFragment() {
     }
@@ -208,7 +202,9 @@ public class MathsTestFragment extends Fragment {
         });
 
         // put the focus on the answer field, and enable soft keyboard
-        edittext.setShowSoftInputOnFocus(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            edittext.setShowSoftInputOnFocus(true);
+        }
         edittext.requestFocus();
         // edittext.setsetSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
@@ -240,12 +236,6 @@ public class MathsTestFragment extends Fragment {
         mListener = null;
     }
 
-    // 10. This is the hook back to the calling fragment
-    // currently embedded in CheckCorrect () - adds 1 meTime every correct answer...
-    // and in finishedSpeedTest() - gives bonus on #(right-wrong)
-
-    // 11. Other stuff
-
     // default onResume, but needed to restart the testing if interrupted
     @Override
     public void onResume() {
@@ -253,6 +243,12 @@ public class MathsTestFragment extends Fragment {
         generateTest();
 
     }
+
+    // 10. This is the hook back to the calling fragment
+    // currently embedded in CheckCorrect () - adds 1 meTime every correct answer...
+    // and in finishedSpeedTest() - gives bonus on #(right-wrong)
+
+    // 11. Other stuff
 
     // default onStop() to save any high scores, and cancel any running timer
     @Override
@@ -262,7 +258,6 @@ public class MathsTestFragment extends Fragment {
         // Cancel the timer if we have one...
         if (mTest == TestType.SPEED && myCountDownTimer != null) myCountDownTimer.cancel();
     }
-
 
     // Get a couple of random integers, and adjust to make sense (and slightly easier)
     public void generateTest() {
@@ -522,5 +517,10 @@ public class MathsTestFragment extends Fragment {
                 });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    // 1. Defines the listener interface with a method passing back data result.
+    public interface OnFragmentInteractionListener {
+        void onMathsTestResult(int value);
     }
 }

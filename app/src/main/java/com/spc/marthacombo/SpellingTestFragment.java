@@ -3,6 +3,7 @@ package com.spc.marthacombo;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -32,21 +33,11 @@ import android.widget.TextView;
 // 6. OnResume()     >>> [fragment is running] >>>  6. OnPause()
 public class SpellingTestFragment extends Fragment {
 
-    // 1. Defines the listener interface with a method passing back data result.
-    public interface OnFragmentInteractionListener {
-        void onSpellingTestResult(int value);
-
-        void speakThis(String sayThis);
-
-        void spellThis(String sayThis);
-    }
+    // 3. Define key variables
+    private static final String TAG = "SpellingTestFragment";
 
     // 2. Defines the fragment parameters
     // NONE REQUIRED
-
-    // 3. Define key variables
-    private static final String TAG = "SpellingTestFragment";
-    private OnFragmentInteractionListener mListener;
     SpellingList mySpellingList;
     int wordCount, guessCount, correctCount;
     Button btn_play;
@@ -54,17 +45,10 @@ public class SpellingTestFragment extends Fragment {
     ImageView iv_tick, iv_martha;
     EditText ed_answer;
     String displayThis, sayThis;
-
-
+    private OnFragmentInteractionListener mListener;
     // 4. Required empty public constructor
     public SpellingTestFragment() {
     }
-
-    // 5. Factory method to create new instance with parameter
-    // NOT REQUIRED
-
-    // 6.Default onCreate to retrieve any parameters passed
-    // NONE REQUIRED
 
     // 7. onCreateView to get the fragment ready for input
     @Override
@@ -176,6 +160,12 @@ public class SpellingTestFragment extends Fragment {
         return view;
     }
 
+    // 5. Factory method to create new instance with parameter
+    // NOT REQUIRED
+
+    // 6.Default onCreate to retrieve any parameters passed
+    // NONE REQUIRED
+
     // 8. default onAttach to check method implemented in caller, and set the listener
     @Override
     public void onAttach(Context context) {
@@ -195,12 +185,6 @@ public class SpellingTestFragment extends Fragment {
         mListener = null;
     }
 
-    // 10. This is the hook back to the calling fragment
-    // currently embedded in CheckCorrect () - adds 1 meTime every correct answer...
-    // and in finishedSpeedTest() - gives bonus on #(right-wrong)
-
-    // 11. Other stuff
-
     // default onStop() to save test progress
     @Override
     public void onStop() {
@@ -208,6 +192,11 @@ public class SpellingTestFragment extends Fragment {
         mySpellingList.persistSpellingWordList();   // Save Spelling Test progress
     }
 
+    // 10. This is the hook back to the calling fragment
+    // currently embedded in CheckCorrect () - adds 1 meTime every correct answer...
+    // and in finishedSpeedTest() - gives bonus on #(right-wrong)
+
+    // 11. Other stuff
 
     public void generateTest() {
 
@@ -221,7 +210,9 @@ public class SpellingTestFragment extends Fragment {
 
         // clear any previous answer, put the focus on the answer field, and enable soft keyboard
         ed_answer.setText("");
-        ed_answer.setShowSoftInputOnFocus(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ed_answer.setShowSoftInputOnFocus(true);
+        }
         ed_answer.requestFocus();
         // ed_answer.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 
@@ -344,5 +335,14 @@ public class SpellingTestFragment extends Fragment {
         ed_answer.setText("");
 
 
+    }
+
+    // 1. Defines the listener interface with a method passing back data result.
+    public interface OnFragmentInteractionListener {
+        void onSpellingTestResult(int value);
+
+        void speakThis(String sayThis);
+
+        void spellThis(String sayThis);
     }
 }

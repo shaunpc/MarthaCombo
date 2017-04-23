@@ -1,6 +1,7 @@
 package com.spc.marthacombo;
 
 import android.content.Context;
+import android.os.Build;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
@@ -42,7 +43,9 @@ public class Speaker implements TextToSpeech.OnInitListener {
         // Speak only if the TTS is ready
         Log.i(TAG, "Speak=" + text + " / Ready=" + ready);
         if (ready) {
-            tts.speak(text, TextToSpeech.QUEUE_ADD, null, null);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                tts.speak(text, TextToSpeech.QUEUE_ADD, null, null);
+            }
         }
     }
 
@@ -50,7 +53,9 @@ public class Speaker implements TextToSpeech.OnInitListener {
         // Speak only if the TTS is ready
         Log.i(TAG, "Pause=" + mSeconds + " / Ready=" + ready);
         if (ready) {
-            tts.playSilentUtterance(mSeconds, TextToSpeech.QUEUE_ADD, null);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                tts.playSilentUtterance(mSeconds, TextToSpeech.QUEUE_ADD, null);
+            }
         }
     }
 
