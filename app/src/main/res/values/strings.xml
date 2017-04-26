@@ -32,5 +32,6 @@
     <string name="list_item_btn_delete">Delete this word</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="spelling_test_num">Word #1</string>
+    <string name="hint">. . . Enter word . . .</string>
 
 </resources>

@@ -20,11 +20,11 @@ import java.util.List;
  */
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
+    private final static String TAG = "MyItemAdapter";
     private final List<String> mValuesWords;
     private final List<String> mValuesGuesses;
     private final OnListFragmentInteractionListener mListener;
     private final boolean mSetupMode;
-    private final static String TAG = "MyItemAdapter";
 
     public MyItemRecyclerViewAdapter(List<String> words, List<String> guesses, OnListFragmentInteractionListener listener, boolean setupMode) {
         mValuesWords = words;
@@ -42,16 +42,15 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Log.i(TAG, "onBindHolder with int=" + position);
         holder.mPosition = position;                //store this list array position
         holder.mItemWord = mValuesWords.get(position);       //get the WORD at this position
         holder.mItemGuess = mValuesGuesses.get(position);       //get the GUESS at this position
         holder.mIdView.setText(String.valueOf(position + 1));   // set the #word on screen (1..n)
+        logHolderInfo(holder, "onBindHolder setup");
         holder.mIdView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {           // set the PLAY listener
-                Log.i(TAG, "Item #" + holder.mPosition + " - PLAY pressed");
-                Log.i(TAG, "Word Content is " + holder.mItemWord);
+                logHolderInfo(holder, "PLAY pressed");
                 if (null != mListener) {
                     // Get the MainActivity to speak the word
                     mListener.speakThis(holder.mItemWord);
@@ -66,9 +65,10 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             holder.mDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {   // set the DELETE listener
-                    Log.i(TAG, "Item #" + holder.mPosition + " - DELETE pressed");
-                    Log.i(TAG, "Word Content is " + holder.mItemWord);
+                    logHolderInfo(holder, "DELETE pressed");
                     removeItem(holder.mPosition);
+                    // above works as long as removeItem notifies of range change to update position numbers of remaining
+                    // removeItem(holder.getLayoutPosition());
 
                 }
             });
@@ -89,8 +89,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     holder.mDelete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {   // set the DELETE listener
-                            Log.i(TAG, "Item #" + holder.mPosition + " - INCORRECT pressed");
-                            Log.i(TAG, "Word=" + holder.mItemWord + "/Guess=" + holder.mItemGuess);
+                            logHolderInfo(holder, "INCORRECT pressed");
                             if (null != mListener) {
                                 // Get the MainActivity to speak the word
                                 mListener.spellThis(holder.mItemWord);
@@ -106,13 +105,23 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             @Override
             public void onClick(View v) {
                 if (null != mListener) {
-                    Log.i(TAG, "List Row#" + holder.mItemWord + " pressed");
+                    logHolderInfo(holder, "pressed");
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
                     // mListener.onListFragmentInteraction(holder.mItemWord);
                 }
             }
         });
+    }
+
+    public void logHolderInfo(ViewHolder holder, String msg) {
+        String logmsg;
+        logmsg = "Layout Position " + holder.getLayoutPosition() + " / ";
+        logmsg = logmsg + "Row#" + holder.mPosition + " / ";
+        logmsg = logmsg + "Word=" + holder.mItemWord + " / ";
+        logmsg = logmsg + "Guess=" + holder.mItemGuess + " / ";
+        logmsg = logmsg + msg;
+        Log.i(TAG, logmsg);
     }
 
     @Override
@@ -123,6 +132,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     public void removeItem(int position) {
         mValuesWords.remove(position);
         notifyItemRemoved(position);
+        //inform holder that remaining data has changed... re-updates holder positions and visible numbers
+        notifyItemRangeChanged(position, mValuesWords.size());
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
