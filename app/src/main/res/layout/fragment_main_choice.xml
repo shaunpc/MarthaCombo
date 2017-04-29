@@ -6,50 +6,51 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvMainTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvMainTitle"
-        android:text="@string/tvMainTitle"
         android:gravity="center_horizontal"
-        android:textSize="@dimen/text_size_5"
-        android:paddingTop="@dimen/display_size_1" />
+        android:paddingTop="@dimen/display_size_1"
+        android:text="@string/tvMainTitle"
+        android:textSize="@dimen/text_size_5" />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/ivMainImage"
-        android:contentDescription="@string/ivMainImage"
-        android:background="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMainTitle"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal|top"
-        android:layout_alignBottom="@+id/ibMathsButton"
-        android:layout_below="@+id/tvMainTitle" />
+        android:contentDescription="@string/ivMainImage"
+        android:scaleType="centerInside"
+        android:src="@drawable/martha" />
 
     <ImageButton
+        android:id="@+id/ibMathsButton"
         android:layout_width="@dimen/display_size_9"
         android:layout_height="@dimen/display_size_9"
-        android:id="@+id/ibMathsButton"
-        android:contentDescription="@string/ibMathsButton"
-        android:background="@drawable/maths_button"
-        android:layout_gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/display_size_4"
         android:layout_marginLeft="@dimen/display_size_4"
         android:layout_marginStart="@dimen/display_size_4"
-        android:layout_marginBottom="@dimen/display_size_4" />
+        android:background="@drawable/maths_button"
+        android:contentDescription="@string/ibMathsButton" />
 
     <ImageButton
+        android:id="@+id/ibSpellingButton"
         android:layout_width="@dimen/display_size_9"
         android:layout_height="@dimen/display_size_9"
-        android:id="@+id/ibSpellingButton"
-        android:contentDescription="@string/ibSpellingButton"
-        android:background="@drawable/spelling_button"
-        android:layout_gravity="center"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="@dimen/display_size_4"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/display_size_4"
         android:layout_marginEnd="@dimen/display_size_4"
-        android:layout_marginBottom="@dimen/display_size_4" />
+        android:layout_marginRight="@dimen/display_size_4"
+        android:background="@drawable/spelling_button"
+        android:contentDescription="@string/ibSpellingButton" />
 
 </RelativeLayout>
