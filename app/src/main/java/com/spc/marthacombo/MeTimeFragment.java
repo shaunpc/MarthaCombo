@@ -3,6 +3,7 @@ package com.spc.marthacombo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,9 +36,9 @@ public class MeTimeFragment extends Fragment {
     // 3. Define key variables
     private static final String MY_PREFS_FILE = "MeTimePrefs";
     private static final String TAG = "MeTimeFragment";
-    private int meTime;
     TextView meTimeCredit;
     SharedPreferences sharedpreferences;
+    private int meTime;
 
     // 4. Required empty public constructor   --   TODO - seemed to work without this??
     public MeTimeFragment() {
@@ -51,13 +52,13 @@ public class MeTimeFragment extends Fragment {
 
     // 7. onCreateView to get the fragment ready for input
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_me_time, container, false);
 
         // Find button in view and set long/short click listeners
-        Button meTimeButton = (Button) view.findViewById(R.id.meTimeButton);
+        Button meTimeButton = view.findViewById(R.id.meTimeButton);
         meTimeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.d(TAG, "MeTime button short-click called");
@@ -85,7 +86,7 @@ public class MeTimeFragment extends Fragment {
         meTime = sharedpreferences.getInt("MeTime", 0);
 
         // Find the text view, and populate with what we find in Preference file
-        meTimeCredit = (TextView) view.findViewById(R.id.meTimeCredit);
+        meTimeCredit = view.findViewById(R.id.meTimeCredit);
         meTimeCredit.setText(String.valueOf(meTime));
 
         return view;

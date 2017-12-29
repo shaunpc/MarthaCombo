@@ -3,6 +3,7 @@ package com.spc.marthacombo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -30,38 +31,22 @@ import android.widget.ImageView;
 public class MainChoiceFragment extends Fragment
         implements EditTextDialog.OnFragmentInteractionListener {
 
-    // 1. Defines the listener interface with a method passing back data result.
-    public interface OnFragmentInteractionListener {
-        void onMainChoice(Choices choice);
-
-        void speakThis(String string);
-
-        void setAppBarTitle(String string);
-    }
+    // 3. Define key variables
+    private final static String TAG = "MainChoiceFragment";
 
     // 2. Defines the fragment parameters
     // NOT REQUIRED FOR THIS FRAGMENT
-
-    // 3. Define key variables
-    private final static String TAG = "MainChoiceFragment";
-    private OnFragmentInteractionListener mListener;
     ImageButton ibMathsButton;
     ImageButton ibSpellingButton;
     Animation animScale, animRotate, animTranslate, animAlpha;
-
+    private OnFragmentInteractionListener mListener;
     // 4. Required empty public constructor
     public MainChoiceFragment() {
     }
 
-    // 5. Factory method to create new instance with parameter
-    // NOT REQUIRED FOR THIS FRAGMENT
-
-    // 6.Default onCreate to retrieve any parameters passed
-    // NOT REQUIRED FOR THIS FRAGMENT
-
     // 7. onCreateView to get the dialog ready for input
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.v(TAG, "onCreateView()");
         // Inflate the layout for this fragment, and get context for animations
@@ -77,7 +62,7 @@ public class MainChoiceFragment extends Fragment
         animScale = AnimationUtils.loadAnimation(context, R.anim.anim_scale);
         animTranslate = AnimationUtils.loadAnimation(context, R.anim.anim_translate);
 
-        ibMathsButton = (ImageButton) view.findViewById(R.id.ibMathsButton);
+        ibMathsButton = view.findViewById(R.id.ibMathsButton);
         ibMathsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +71,7 @@ public class MainChoiceFragment extends Fragment
                 mListener.onMainChoice(Choices.MATHS);
             }
         });
-        ibSpellingButton = (ImageButton) view.findViewById(R.id.ibSpellingButton);
+        ibSpellingButton = view.findViewById(R.id.ibSpellingButton);
         ibSpellingButton.startAnimation(animScale);
         ibSpellingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +83,7 @@ public class MainChoiceFragment extends Fragment
         });
 
         // Set the long-click on the main image to be capture a word/phrase in dialog...
-        ImageView ivMainImage = (ImageView) view.findViewById(R.id.ivMainImage);
+        ImageView ivMainImage = view.findViewById(R.id.ivMainImage);
         ivMainImage.setLongClickable(true);
         ivMainImage.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -113,6 +98,12 @@ public class MainChoiceFragment extends Fragment
         return view;
 
     }
+
+    // 5. Factory method to create new instance with parameter
+    // NOT REQUIRED FOR THIS FRAGMENT
+
+    // 6.Default onCreate to retrieve any parameters passed
+    // NOT REQUIRED FOR THIS FRAGMENT
 
     // 8. default onAttach to check method implemented in caller, and set the listener
     @Override
@@ -135,11 +126,6 @@ public class MainChoiceFragment extends Fragment
         mListener = null;
     }
 
-    // 10. This is the hook back to the calling fragment
-    // Embedded in onCreateView button listeners
-
-    // 11. Other stuff
-
     // These are used to launch the EditText Dialog fragment, and to handle the resultant callback
     private void showEditDialog(String title) {
         FragmentManager fm = getActivity().getSupportFragmentManager();
@@ -149,6 +135,11 @@ public class MainChoiceFragment extends Fragment
         editTextDialog.show(fm, "fragment_edit_name");
     }
 
+    // 10. This is the hook back to the calling fragment
+    // Embedded in onCreateView button listeners
+
+    // 11. Other stuff
+
     @Override
     public void onFinishEditDialog(String inputText) {
         Log.i(TAG, "onFinishedEditDialog(" + inputText + ")");
@@ -156,6 +147,15 @@ public class MainChoiceFragment extends Fragment
             // Tell the activity to run the speakThis method
             mListener.speakThis(inputText);
         }
+    }
+
+    // 1. Defines the listener interface with a method passing back data result.
+    public interface OnFragmentInteractionListener {
+        void onMainChoice(Choices choice);
+
+        void speakThis(String string);
+
+        void setAppBarTitle(String string);
     }
 
 }

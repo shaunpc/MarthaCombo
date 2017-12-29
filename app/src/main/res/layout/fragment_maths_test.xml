@@ -2,32 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.spc.marthacombo.MathsTestFragment"
+    android:layout_centerHorizontal="true"
     android:orientation="vertical"
-    android:layout_centerHorizontal="true">
+    tools:context="com.spc.marthacombo.MathsTestFragment">
 
     <TextView
+        android:id="@+id/tv_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/tv_score"
-        android:text="@string/martha_instructions"
-        android:gravity="center_horizontal"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="@string/martha_instructions"
         android:textSize="@dimen/text_size_1" />
 
     <EditText
+        android:id="@+id/ed_answer"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:id="@+id/ed_answer"
-        android:textSize="@dimen/text_size_4"
-        android:layout_gravity="center_horizontal"
         android:layout_above="@id/tv_score"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="@dimen/spacer_size_1h"
-        android:layout_marginRight="@dimen/spacer_size_1h">
+        android:layout_marginRight="@dimen/spacer_size_1h"
+        android:inputType="number"
+        android:textSize="@dimen/text_size_4">
 
         <requestFocus />
     </EditText>
@@ -35,61 +35,55 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/ed_answer"
-        android:layout_toLeftOf="@id/ed_answer"
         android:layout_alignBottom="@id/ed_answer"
         android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/spacer_size_1h"
+        android:layout_toStartOf="@id/ed_answer"
         android:text="@string/martha_text_equals"
-        android:textSize="@dimen/text_size_4"
-        android:layout_marginRight="@dimen/spacer_size_1h"
-        android:layout_marginEnd="@dimen/spacer_size_1h" />
+        android:textSize="@dimen/text_size_4" />
 
     <ImageView
+        android:id="@+id/iv_tick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/iv_tick"
-        android:src="@drawable/green_tick"
-        android:contentDescription="@string/app_name"
-        android:layout_marginLeft="@dimen/spacer_size_1h"
-        android:layout_marginStart="@dimen/spacer_size_1h"
         android:layout_above="@+id/tv_score"
-        android:layout_toRightOf="@+id/ed_answer"
-        android:layout_toEndOf="@+id/ed_answer"
         android:layout_alignTop="@+id/ed_answer"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="@dimen/spacer_size_1h"
+        android:layout_toEndOf="@+id/ed_answer"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/green_tick"
         android:visibility="invisible" />
 
 
     <TextView
+        android:id="@+id/sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sign"
-        android:text="@string/martha_text_mult"
-        android:gravity="center_horizontal"
-        android:textSize="@dimen/text_size_4"
         android:layout_above="@id/ed_answer"
-        android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="@dimen/spacer_size_1h"
-        android:layout_marginRight="@dimen/spacer_size_1h" />
+        android:layout_marginRight="@dimen/spacer_size_1h"
+        android:gravity="center_horizontal"
+        android:text="@string/martha_text_mult"
+        android:textSize="@dimen/text_size_4" />
 
     <TextView
+        android:id="@+id/textView_num1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/sign"
-        android:layout_toStartOf="@id/sign"
         android:layout_alignBottom="@id/sign"
-        android:id="@+id/textView_num1"
+        android:layout_toStartOf="@id/sign"
         android:textSize="@dimen/text_size_4" />
 
 
     <TextView
+        android:id="@+id/textView_num2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/sign"
-        android:layout_toEndOf="@id/sign"
         android:layout_alignBottom="@id/sign"
-        android:id="@+id/textView_num2"
+        android:layout_toEndOf="@id/sign"
         android:textSize="@dimen/text_size_4" />
 
 
@@ -97,29 +91,28 @@
         android:id="@+id/full_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:alpha="0.3"
-        android:layout_below="@id/tv_score"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
         android:layout_alignParentBottom="true"
-        android:contentDescription="@string/martha_picture" />
+        android:layout_alignParentStart="false"
+        android:layout_below="@id/tv_score"
+        android:alpha="0.3"
+        android:contentDescription="@string/martha_picture"
+        android:src="@mipmap/ic_launcher" />
 
     <ProgressBar
+        android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
         android:layout_above="@+id/textView_num2"
         android:layout_margin="@dimen/spacer_size_1h"
         android:progressDrawable="@drawable/custom_progress_bar" />
 
     <TextView
+        android:id="@+id/pb_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/progressBar"
-        android:id="@+id/pb_text"
-        android:textSize="@dimen/text_size_3"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/text_size_3" />
 
 </RelativeLayout>

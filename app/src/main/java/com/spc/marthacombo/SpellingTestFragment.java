@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -52,7 +53,7 @@ public class SpellingTestFragment extends Fragment {
 
     // 7. onCreateView to get the fragment ready for input
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_spelling_test, container, false);
@@ -63,7 +64,7 @@ public class SpellingTestFragment extends Fragment {
         mySpellingList.logListContents();
 
         // Set up the various UI component variables
-        btn_play = (Button) view.findViewById(R.id.btn_play);
+        btn_play = view.findViewById(R.id.btn_play);
         btn_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {           // set the PLAY listener
@@ -90,12 +91,12 @@ public class SpellingTestFragment extends Fragment {
             }
         });
 
-        tv_title = (TextView) view.findViewById(R.id.tv_title);
-        tv_score = (TextView) view.findViewById(R.id.tv_score);
-        iv_tick = (ImageView) view.findViewById(R.id.iv_tick);
+        tv_title = view.findViewById(R.id.tv_title);
+        tv_score = view.findViewById(R.id.tv_score);
+        iv_tick = view.findViewById(R.id.iv_tick);
         iv_tick.setVisibility(View.INVISIBLE);
-        iv_martha = (ImageView) view.findViewById(R.id.iv_martha);
-        ed_answer = (EditText) view.findViewById(R.id.ed_answer);
+        iv_martha = view.findViewById(R.id.iv_martha);
+        ed_answer = view.findViewById(R.id.ed_answer);
 
         // set the EditorAction listener so that keypad remains visible after DONE
         Log.i(TAG, "setting onEditorAction");

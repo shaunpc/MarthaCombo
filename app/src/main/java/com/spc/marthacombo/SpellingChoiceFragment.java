@@ -2,6 +2,7 @@ package com.spc.marthacombo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,34 +29,20 @@ import android.widget.Button;
 // 6. OnResume()     >>> [fragment is running] >>>  6. OnPause()
 public class SpellingChoiceFragment extends Fragment {
 
-    // 1. Defines the listener interface with a method passing back data result.
-    public interface OnFragmentInteractionListener {
-        void onSpellingChoice(Choices choice);
-
-        void setAppBarTitle(String string);
-    }
+    // 3. Define key variables
+    private final static String TAG = "SpellingChoiceFragment";
 
     // 2. Defines the fragment parameters
     // NONE for this fragment
-
-    // 3. Define key variables
-    private final static String TAG = "SpellingChoiceFragment";
-    private OnFragmentInteractionListener mListener;
     public SpellingList mySpellingList;
-
+    private OnFragmentInteractionListener mListener;
     // 4. Required empty public constructor
     public SpellingChoiceFragment() {
     }
 
-    // 5. Factory method to create new instance with parameter
-    // NONE for this fragment
-
-    // 6.Default onCreate to retrieve any parameters passed
-    // NONE for this fragment
-
     // 7. onCreateView to get the dialog ready for input
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView()");
         // Inflate the layout for this fragment
@@ -65,7 +52,7 @@ public class SpellingChoiceFragment extends Fragment {
         mListener.setAppBarTitle(getResources().getString(R.string.app_name) + "   >> Spelling <<");
 
         // Set up the Maths choices buttons to take action onClick
-        Button setupButton = (Button) view.findViewById(R.id.button_setup);
+        Button setupButton = view.findViewById(R.id.button_setup);
         setupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +60,7 @@ public class SpellingChoiceFragment extends Fragment {
                 mListener.onSpellingChoice(Choices.SPELLING_SETUP);
             }
         });
-        Button testButton = (Button) view.findViewById(R.id.button_test);
+        Button testButton = view.findViewById(R.id.button_test);
         testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +68,7 @@ public class SpellingChoiceFragment extends Fragment {
                 mListener.onSpellingChoice(Choices.SPELLING_TEST);
             }
         });
-        Button reviewButton = (Button) view.findViewById(R.id.button_review);
+        Button reviewButton = view.findViewById(R.id.button_review);
         reviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +98,12 @@ public class SpellingChoiceFragment extends Fragment {
         return view;
     }
 
+    // 5. Factory method to create new instance with parameter
+    // NONE for this fragment
+
+    // 6.Default onCreate to retrieve any parameters passed
+    // NONE for this fragment
+
     // 8. default onAttach to check method implemented in caller, and set the listener
     @Override
     public void onAttach(Context context) {
@@ -130,6 +123,13 @@ public class SpellingChoiceFragment extends Fragment {
         super.onDetach();
         Log.i(TAG, "onDetach() - clearing mListener");
         mListener = null;
+    }
+
+    // 1. Defines the listener interface with a method passing back data result.
+    public interface OnFragmentInteractionListener {
+        void onSpellingChoice(Choices choice);
+
+        void setAppBarTitle(String string);
     }
 
     // 10. This is the hook back to the calling fragment

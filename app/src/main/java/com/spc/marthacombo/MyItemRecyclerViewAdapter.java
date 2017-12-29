@@ -148,9 +148,9 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (Button) view.findViewById(R.id.list_item_btn_play);
-            mContentView = (TextView) view.findViewById(R.id.list_item_word);
-            mDelete = (ImageButton) view.findViewById(R.id.list_item_btn_delete);
+            mIdView = view.findViewById(R.id.list_item_btn_play);
+            mContentView = view.findViewById(R.id.list_item_word);
+            mDelete = view.findViewById(R.id.list_item_btn_delete);
         }
 
         @Override

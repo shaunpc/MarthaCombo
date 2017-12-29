@@ -14,8 +14,8 @@
         android:name="com.spc.marthacombo.ItemFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         app:layoutManager="LinearLayoutManager"
         tools:context="com.spc.marthacombo.ItemFragment"
         tools:listitem="@layout/fragment_item" />

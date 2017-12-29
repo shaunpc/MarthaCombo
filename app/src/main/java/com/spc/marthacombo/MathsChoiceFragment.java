@@ -3,6 +3,7 @@ package com.spc.marthacombo;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,39 +26,24 @@ import android.widget.NumberPicker;
 // 6. OnResume()     >>> [fragment is running] >>>  6. OnPause()
 public class MathsChoiceFragment extends Fragment {
 
-    // 1. Defines the listener interface with a method passing back data result.
-    public interface OnFragmentInteractionListener {
-        // Defines the interface and params needed to enable activity/fragment communication
-        void onMathsChoice(CalcType mCalc, TestType mTestType, int mParam);
-
-        void setAppBarTitle(String string);
-    }
+    // 3. Define key variables
+    private static final String MY_PREFS_FILE = "MathsPrefs";
 
     // 2. Defines the fragment parameters
     // NOT REQUIRED FOR THIS FRAGMENT
-
-    // 3. Define key variables
-    private static final String MY_PREFS_FILE = "MathsPrefs";
     private static final String TAG = "MathsChoiceFragment";
-    private OnFragmentInteractionListener mListener;
     NumberPicker np, np_min, np_sec;
     CalcType mCalc;
     ImageButton btn_multiply, btn_add, btn_divide, btn_subtract;
     Button maths_random_btn, maths_speedtest_btn, maths_practice_btn;
-
+    private OnFragmentInteractionListener mListener;
     // 4. Required empty public constructor
     public MathsChoiceFragment() {
     }
 
-    // 5. Factory method to create new instance with parameter
-    // NOT REQUIRED FOR THIS FRAGMENT
-
-    // 6.Default onCreate to retrieve any parameters passed
-    // NOT REQUIRED FOR THIS FRAGMENT
-
     // 7. onCreateView to get the fragment ready for input
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_maths_choice, container, false);
@@ -67,7 +53,7 @@ public class MathsChoiceFragment extends Fragment {
 
 
         // set up the SIGN buttons
-        btn_multiply = (ImageButton) view.findViewById(R.id.btn_multiply);
+        btn_multiply = view.findViewById(R.id.btn_multiply);
         btn_multiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +62,7 @@ public class MathsChoiceFragment extends Fragment {
                 resetOperandButtons();
             }
         });
-        btn_add = (ImageButton) view.findViewById(R.id.btn_add);
+        btn_add = view.findViewById(R.id.btn_add);
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +71,7 @@ public class MathsChoiceFragment extends Fragment {
                 resetOperandButtons();
             }
         });
-        btn_divide = (ImageButton) view.findViewById(R.id.btn_divide);
+        btn_divide = view.findViewById(R.id.btn_divide);
         btn_divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +80,7 @@ public class MathsChoiceFragment extends Fragment {
                 resetOperandButtons();
             }
         });
-        btn_subtract = (ImageButton) view.findViewById(R.id.btn_subtract);
+        btn_subtract = view.findViewById(R.id.btn_subtract);
         btn_subtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,27 +98,27 @@ public class MathsChoiceFragment extends Fragment {
 
         // Set up the Practice Tables choice spinner - use previously saved value if available
         int lastPracticeValue = settings.getInt("LastPracticeValue", 6);
-        np = (NumberPicker) view.findViewById(R.id.numberPicker);
+        np = view.findViewById(R.id.numberPicker);
         np.setMaxValue(12);     // max value 12
         np.setMinValue(1);      // min value 1-by georgia (amazing!!!)
         np.setValue(lastPracticeValue);
 
         // Set up the SpeedTest MINUTE choice spinner - use previously saved value if available
         int lastRandomMinuteValue = settings.getInt("LastRandomMinuteValue", 10);
-        np_min = (NumberPicker) view.findViewById(R.id.numberPicker_min);
+        np_min = view.findViewById(R.id.numberPicker_min);
         np_min.setMaxValue(10);     // max value 10
         np_min.setMinValue(0);      // min value 0
         np_min.setValue(lastRandomMinuteValue);
 
         // Set up the SpeedTest SECOND choice spinner - use previously saved value if available
         int lastRandomSecondValue = settings.getInt("LastRandomSecondValue", 30);
-        np_sec = (NumberPicker) view.findViewById(R.id.numberPicker_sec);
+        np_sec = view.findViewById(R.id.numberPicker_sec);
         np_sec.setMaxValue(59);     // max value 59
         np_sec.setMinValue(0);      // min value 0
         np_sec.setValue(lastRandomSecondValue);
 
         // Set up the Maths choices buttons to take action
-        maths_random_btn = (Button) view.findViewById(R.id.maths_random_btn);
+        maths_random_btn = view.findViewById(R.id.maths_random_btn);
         maths_random_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,7 +126,7 @@ public class MathsChoiceFragment extends Fragment {
                 mListener.onMathsChoice(mCalc, TestType.RANDOM, 0);
             }
         });
-        maths_speedtest_btn = (Button) view.findViewById(R.id.maths_speedtest_btn);
+        maths_speedtest_btn = view.findViewById(R.id.maths_speedtest_btn);
         maths_speedtest_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +135,7 @@ public class MathsChoiceFragment extends Fragment {
                 mListener.onMathsChoice(mCalc, TestType.SPEED, param);
             }
         });
-        maths_practice_btn = (Button) view.findViewById(R.id.maths_practice_btn);
+        maths_practice_btn = view.findViewById(R.id.maths_practice_btn);
         maths_practice_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,6 +148,11 @@ public class MathsChoiceFragment extends Fragment {
         return view;
     }
 
+    // 5. Factory method to create new instance with parameter
+    // NOT REQUIRED FOR THIS FRAGMENT
+
+    // 6.Default onCreate to retrieve any parameters passed
+    // NOT REQUIRED FOR THIS FRAGMENT
 
     // 8. default onAttach to check method implemented in caller, and set the listener
     @Override
@@ -181,11 +172,6 @@ public class MathsChoiceFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
-
-    // 10. This is the hook back to the calling fragment
-    // Embedded in onCreateView button listeners
-
-    // 11. Other stuff
 
     // highlights selected operand image
     public void resetOperandButtons() {
@@ -212,6 +198,11 @@ public class MathsChoiceFragment extends Fragment {
         }
     }
 
+    // 10. This is the hook back to the calling fragment
+    // Embedded in onCreateView button listeners
+
+    // 11. Other stuff
+
     // default onStop - where we persist the Maths Test choice selections
     @Override
     public void onStop() {
@@ -228,5 +219,13 @@ public class MathsChoiceFragment extends Fragment {
         // Commit the edits!  Actually 'applies' to let it work in background...
         editor.apply();
 
+    }
+
+    // 1. Defines the listener interface with a method passing back data result.
+    public interface OnFragmentInteractionListener {
+        // Defines the interface and params needed to enable activity/fragment communication
+        void onMathsChoice(CalcType mCalc, TestType mTestType, int mParam);
+
+        void setAppBarTitle(String string);
     }
 }

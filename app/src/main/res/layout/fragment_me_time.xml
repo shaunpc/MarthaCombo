@@ -4,8 +4,6 @@
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
     android:layout_alignParentEnd="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentRight="true"
     android:layout_alignParentStart="true"
     android:layout_centerHorizontal="true"
     android:background="@android:color/holo_green_light"
@@ -19,9 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:gravity="center"
         android:padding="@dimen/meTimePadding"
-        android:text="@string/meTimeLabel1"
-        android:gravity="center" />
+        android:text="@string/meTimeLabel1" />
 
     <TextView
         android:id="@+id/meTimeCredit"
@@ -29,13 +27,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:gravity="center"
+        android:maxLines="1"
+        android:minLines="1"
         android:padding="@dimen/meTimePadding"
         android:text="@string/meTimeCredit"
         android:textSize="@dimen/text_size_3"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:maxLines="1"
-        android:minLines="1" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/meTimeLabel2"
@@ -43,9 +41,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:gravity="center"
         android:padding="@dimen/meTimePadding"
-        android:text="@string/meTimeLabel2"
-        android:gravity="center" />
+        android:text="@string/meTimeLabel2" />
 
     <Button
         android:id="@+id/meTimeButton"
@@ -53,10 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
+        android:gravity="center"
         android:longClickable="true"
         android:padding="@dimen/meTimePadding"
-        android:text="@string/meTimeButton"
-        android:gravity="center" />
+        android:text="@string/meTimeButton" />
 
 
 </LinearLayout>

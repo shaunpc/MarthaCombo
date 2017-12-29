@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -97,14 +98,14 @@ public class MathsTestFragment extends Fragment {
 
     // 7. onCreateView to get the fragment ready for input
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_maths_test, container, false);
 
         // SpeedTest Processing setup
-        mProgressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        tv_pbar = (TextView) view.findViewById(R.id.pb_text);
+        mProgressBar = view.findViewById(R.id.progressBar);
+        tv_pbar = view.findViewById(R.id.pb_text);
 
         if (mTest == TestType.SPEED) {
             Log.i(TAG, "Georgia is epic!");
@@ -145,11 +146,11 @@ public class MathsTestFragment extends Fragment {
         getHighScores();
 
         Log.i(TAG, "created, now getting key view elements identifiers");
-        tv_num1 = (TextView) view.findViewById(R.id.textView_num1);
-        tv_num2 = (TextView) view.findViewById(R.id.textView_num2);
-        tv_score = (TextView) view.findViewById(R.id.tv_score);
+        tv_num1 = view.findViewById(R.id.textView_num1);
+        tv_num2 = view.findViewById(R.id.textView_num2);
+        tv_score = view.findViewById(R.id.tv_score);
 
-        tv_sign = (TextView) view.findViewById(R.id.sign);
+        tv_sign = view.findViewById(R.id.sign);
         if (mCalc == CalcType.ADD) {
             tv_sign.setText("+");
             maxMultiplier = 50;       // And use bigger random numbers
@@ -165,9 +166,9 @@ public class MathsTestFragment extends Fragment {
             tv_sign.setText("x");
         }
 
-        edittext = (EditText) view.findViewById(R.id.ed_answer);
-        iv_tick = (ImageView) view.findViewById(R.id.iv_tick);
-        iv_martha = (ImageView) view.findViewById(R.id.full_layout);
+        edittext = view.findViewById(R.id.ed_answer);
+        iv_tick = view.findViewById(R.id.iv_tick);
+        iv_martha = view.findViewById(R.id.full_layout);
 
         iv_martha.setLongClickable(true);
         iv_martha.setOnLongClickListener(new View.OnLongClickListener() {
